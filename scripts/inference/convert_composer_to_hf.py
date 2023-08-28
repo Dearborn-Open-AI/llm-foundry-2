@@ -197,7 +197,7 @@ def convert_composer_to_hf(args: Namespace) -> None:
                                                          torch_dtype=dtype)
     else:
         loaded_hf_model = transformers.AutoModelForCausalLM.from_pretrained(
-            local_folder_path, config=config, torch_dtype=dtype)
+            local_folder_path, config=config, torch_dtype=dtype, trust_remote_code=True)
 
     delattr(loaded_hf_model.config, '_name_or_path')
 
