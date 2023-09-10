@@ -109,8 +109,7 @@ def write_huggingface_pretrained_from_composer_checkpoint(
     # Extract and save the HF tokenizer
     print('#' * 30)
     print('Saving HF Tokenizer...')
-    hf_tokenizer = get_hf_tokenizer_from_composer_state_dict(
-        composer_state_dict)
+    hf_tokenizer = transformers.AutoTokenizer.from_pretrained("TheBloke/CodeLlama-34B-fp16")
     if hf_tokenizer is not None:
         hf_tokenizer.save_pretrained(output_path)
         print(hf_tokenizer)
